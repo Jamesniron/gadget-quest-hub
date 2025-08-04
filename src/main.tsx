@@ -1,31 +1,5 @@
-import React, { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { createRoot } from 'react-dom/client'
+import App from './App.tsx'
+import './index.css'
 
-import AdminDashboard from './admin/AdminDashboard';
-import AdminLogin from './admin/AdminLogin';
-import SellerDashboard from './seller/SellerDashboard';
-import SellerLogin from './seller/SellerLogin';
-
-const App = () => {
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isSeller, setIsSeller] = useState(false);
-
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/admin"
-          element={isAdmin ? <AdminDashboard /> : <AdminLogin onLogin={() => setIsAdmin(true)} />}
-        />
-        <Route
-          path="/seller"
-          element={isSeller ? <SellerDashboard /> : <SellerLogin onLogin={() => setIsSeller(true)} />}
-        />
-        {/* other routes here */}
-      </Routes>
-    </BrowserRouter>
-  );
-};
-
-ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
+createRoot(document.getElementById("root")!).render(<App />);
