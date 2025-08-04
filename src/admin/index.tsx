@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import AdminDashboard from './admin/AdminDashboard';
-import AdminLogin from './admin/AdminLogin';
-import SellerDashboard from './seller/SellerDashboard';
-import SellerLogin from './seller/SellerLogin';
+import AdminDashboard from './AdminDashboard';
+import AdminLogin from './AdminLogin';
 
 const App = () => {
   const [isAdmin, setIsAdmin] = useState(false);
-  const [isSeller, setIsSeller] = useState(false);
 
   return (
     <BrowserRouter>
@@ -18,11 +14,7 @@ const App = () => {
           path="/admin"
           element={isAdmin ? <AdminDashboard /> : <AdminLogin onLogin={() => setIsAdmin(true)} />}
         />
-        <Route
-          path="/seller"
-          element={isSeller ? <SellerDashboard /> : <SellerLogin onLogin={() => setIsSeller(true)} />}
-        />
-        {/* other routes here */}
+        {/* Add other routes below */}
       </Routes>
     </BrowserRouter>
   );
